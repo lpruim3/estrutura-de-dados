@@ -36,9 +36,7 @@ jobs:
                 exit 1
               fi
             else
-              FILES=$(find "$folder" -name "*.c" -print0)
-
-              for file in $FILES; do
+                            while IFS= read -r -d '' file; do
                 echo "Compilando $file..."
                 gcc "$file" -o "${file%.c}.out" -lm
                 
@@ -48,6 +46,6 @@ jobs:
                   echo "❌ Erro ao compilar o arquivo $file"
                   exit 1
                 fi
-              done
+              done < <(find "$folder" -name "*.c" -print0)
             fi
           done
