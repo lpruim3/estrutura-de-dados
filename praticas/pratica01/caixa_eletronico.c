@@ -46,7 +46,7 @@ void calcularNotas(int saque){
 }
 
 int main(){
-    int valor = 786;
+    int valor = 861;
 
     calcularNotas(valor);
 
